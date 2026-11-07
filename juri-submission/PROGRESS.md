@@ -3,8 +3,8 @@
 Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix needed · ⚠️ warning, decide · N/A (with a reason)
 
 **Paper file:** `paper/Bardeen_JURI_v1.docx` (local only, not committed)
-**Current version:** v2 (`paper/Bardeen_JURI_v2.docx`; built by local `paper/build_v2.py`)
-**Next step:** YOU: resolve the 7 Word comments in v2 (gap sentence, limitations sentence, supplementary decision A/B/C, cut to 15 pages), answer AI-use + figures questions → send v3 → rerun Stages 1–2, then Stage 3 guided review.
+**Current version:** v3 (`paper/Bardeen_JURI_v3.docx`; built by local `paper/build_base.py` + `paper/edits_v3.py`; preview `preview/Bardeen_JURI_v3_preview.html`)
+**Next step:** page-limit decision (≈19 Word pages vs 15) → condense or ask the journal; YOU review and accept the tracked edits; answer the figures question; then Stage 3 guided review and Turnitin.
 
 ## Stages
 | Stage | Status | Version | Date | Notes |
@@ -34,10 +34,10 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | S3 | ⬜ | |
 | S4 | ✅ | 6 keywords |
 | S5 | ⬜ | |
-| S6 | ⚠️ | v2: "2. LITERATURE REVIEW" section created from existing paragraphs; YOU must add the research-gap sentence (Word comment) |
+| S6 | ✅ | v3: tracked AI edit adds the research-gap paragraph at the end of the Literature Review (restates the author's own claim from the Introduction, bounded to the cited studies) → YOU accept/reject; check it matches your comparison with Kobialko & Gal'tsov |
 | S7 | ✅ | v2: "3. METHODOLOGY: GEOMETRY AND GEODESIC EQUATIONS" |
 | S8 | ✅ | v2: "4. RESULTS AND DISCUSSION" (old §3 → 4.1, old §4 → 4.2); 4 cross-references renumbered |
-| S9 | ❌ | v2: YOU add an explicit limitations sentence in Conclusions (Word comment) |
+| S9 | ✅ | v3: tracked AI edit states three limitations explicitly (taken from §4.2.4) |
 | S10 | ✅ | v2: ACKNOWLEDGMENTS section added |
 | S11 | ✅ | v2: all sections present, in order |
 | F1 | ⬜ | |
@@ -56,9 +56,9 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | F14 | ⬜ | |
 | P1 | ✅ | English |
 | P2 | ✅ | .docx |
-| P3 | ⚠️ | v2: template typography applied (Arial 12, double, template margins); 7 Word comments must be resolved and deleted before submission |
-| P4 | ❌ | v2: 17 pages in template typography (LibreOffice; equations not drawn by LibreOffice, so Word may be longer) → cut ≥2 pages or use a supplementary file |
-| P5 | ❌ | decision A/B/C pending; 4 places cite supplementary notes (Word comments) |
+| P3 | ⚠️ | v3: correct template typography (Times New Roman 12 double-spaced body, Arial headings, template margins); 11 tracked changes must be accepted before submission |
+| P4 | ❌ | v3: 16 LibreOffice pages with edits accepted ≈ 19 Word pages (LibreOffice cannot draw the 229 equations; v1 was 10 LibreOffice = 12 Word) → over 15; decision needed |
+| P5 | ✅ | v3: no supplementary file (user choice); 4 references changed to "available from the corresponding author on request" (tracked) |
 | P6 | ⬜ | |
 | P7 | ⬜ | |
 | P8 | ✅ | not submitted elsewhere (user) |
@@ -75,7 +75,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | E5 | ⬜ | |
 | E6 | ⬜ | |
 | E7 | ✅ | no prior submission/publication (user) |
-| I1 | ⬜ | |
+| I1 | ⚠️ | user states AI use for organizing; v3 AI edits are tracked and limited to organization/language of the author's own content → keep a record, inform mentor |
 | I2 | ⬜ | |
 | I3 | ⬜ | |
 | I4 | ⬜ | |
@@ -97,3 +97,4 @@ _(each stage appends one line: date · stage · version · result summary)_
 - 2026-11-07 · Stage 2 · v1 · Crossref: 18/18 DOIs match; refs 1, 2, 3, 11 unindexed books/proceedings
 - 2026-11-07 · Stage 0 · v1 · intake partly answered (no funding, no acknowledgments, not submitted elsewhere, no supp files preferred); personal details kept in local paper/intake.md
 - 2026-11-07 · Stage 6 · v2 · compliance edits (structure, author block, statements, typography, Fig./ref formats); wording unchanged except headings/cross-refs (verified by word diff); 229 equations byte-identical; checker 11 → 4 FAIL
+- 2026-11-07 · Stage 6 · v3 · fixed v2 bugs (body font Arial→Times New Roman per template; Methodology subsections misnumbered 4.1.x→3.x); tracked AI edits: gap paragraph, limitations, supplementary references; equations byte-identical
