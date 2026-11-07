@@ -40,7 +40,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | S9 | ✅ | v3: tracked AI edit states three limitations explicitly (taken from §4.2.4) |
 | S10 | ✅ | v2: ACKNOWLEDGMENTS section added |
 | S11 | ✅ | v2: all sections present, in order |
-| F1 | ⬜ | |
+| F1 | ✅ | all 4 figures made by the author with own scripts (user, 2026-11-07) |
 | F2 | ✅ | 4 images, 584–600 dpi |
 | F3 | ⚠️ | captions now template style (italic, centred); Fig. 1 and Fig. 4 captions long (optional) |
 | F4 | ✅ | v2: captions "Fig. N." |
@@ -53,11 +53,11 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | F11 | ✅ | no non-SI units found |
 | F12 | ✅ | figures embedded |
 | F13 | ⬜ | |
-| F14 | ⬜ | |
+| F14 | ✅ | author made the figures and can explain them (user) |
 | P1 | ✅ | English |
 | P2 | ✅ | .docx |
 | P3 | ⚠️ | v4: all template paragraph styles matched (Normal TNR 12 double, 12 pt before; Title Arial 14; headings Arial bold, H2/H3 italic; captions italic 12 single, 12 pt after; references 12 single); 20 paragraphs with an undefined "BodyText" style set to Normal; equations kept 12 pt like the template; 11 tracked changes to accept |
-| P4 | ❌ | v4 strictly in template format = 20 pages (equations rendered). The JURI sample template itself renders 16 pages in its own format → ask the editorial office how the 15-page limit is counted |
+| P4 | ⚠️ | NOT a written rule: the website gives no line spacing; double spacing comes only from the template file's Normal style. v4 = 20 pages double, 16 at 1.5, 14 at 1.15, 13 at the original 1.08 (equations rendered) → ask the editorial office |
 | P5 | ✅ | v3: no supplementary file (user choice); 4 references changed to "available from the corresponding author on request" (tracked) |
 | P6 | ⬜ | |
 | P7 | ⬜ | |
@@ -100,3 +100,4 @@ _(each stage appends one line: date · stage · version · result summary)_
 - 2026-11-07 · Stage 6 · v3 · fixed v2 bugs (body font Arial→Times New Roman per template; Methodology subsections misnumbered 4.1.x→3.x); tracked AI edits: gap paragraph, limitations, supplementary references; equations byte-identical
 - 2026-11-07 · P4 · page counts re-measured with the equation module installed (earlier counts drew equations as blank): v1 12, v3 18, exact template spacing 19
 - 2026-11-07 · Stage 6 · v4 · template styles matched; undefined BodyText style fixed; text and equations unchanged (verified); 20 pages strict template; JURI sample template = 16 pages
+- 2026-11-07 · P4 · clarified: double spacing is inferred from the template file, not stated on the website; spacing variants measured (13/14/16/20 pages)
