@@ -3,8 +3,8 @@
 Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix needed · ⚠️ warning, decide · N/A (with a reason)
 
 **Paper file:** `paper/Bardeen_JURI_v1.docx` (local only, not committed)
-**Current version:** v6: `paper/Bardeen_JURI_v6_BLIND_double.docx` (upload candidate, 17 pp) and `paper/Bardeen_JURI_v6_named_tracked.docx` (cuts as tracked changes); made by `paper/cuts_v6.py WFEBR` from v4 with changes accepted
-**Next step:** user reviews the v6 cuts and decides on the content candidates for the last 2 pages (Table 2, numerical-procedure detail, §4.2.4, example at ε = 0.10, extremality detail).
+**Current version:** FINAL. Upload: `paper/Bardeen_JURI_FINAL_main_BLIND.docx` (15 pp) + `paper/Bardeen_JURI_FINAL_supplement_BLIND.docx` (5 pp). Named copies: `..._main_named.docx`, `..._supplement_named.docx`. Built by `paper/final_build.py` from v6 + `paper/blind_v5.py` + `paper/supp_versions.py`
+**Next step:** user reads the final files → Turnitin (≤15%) → form step 3 AUTHORS → upload main as Manuscript body and the supplement as supplementary material (check the form has a slot) → check generated PDF → submit.
 
 ## Stages
 | Stage | Status | Version | Date | Notes |
@@ -42,14 +42,14 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | S11 | ✅ | v2: all sections present, in order |
 | F1 | ✅ | all 4 figures made by the author with own scripts (user, 2026-11-07) |
 | F2 | ✅ | 4 images, 584–600 dpi |
-| F3 | ⚠️ | captions now template style (italic, centred); Fig. 1 and Fig. 4 captions long (optional) |
+| F3 | ⚠️ | Fig. 2 caption 43 words (optional) |
 | F4 | ✅ | v2: captions "Fig. N." |
 | F5 | ✅ | 3 table titles, all above their tables |
 | F6 | ✅ | Tables 1–3 in order |
 | F7 | ✅ | v2: in-text "Fig. N" |
 | F8 | ✅ | all figures and tables referred to, in order |
 | F9 | ✅ | 35 editable equations, none images |
-| F10 | ⚠️ | numbers (1)–(35) consecutive; YOU confirm centred with number right |
+| F10 | ✅ | FINAL main equations renumbered (1)–(26); every "Eq. (n)" reference checked |
 | F11 | ✅ | no non-SI units found |
 | F12 | ✅ | figures embedded |
 | F13 | ⬜ | |
@@ -57,8 +57,8 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | P1 | ✅ | English |
 | P2 | ✅ | .docx |
 | P3 | ⚠️ | v4: all template paragraph styles matched (Normal TNR 12 double, 12 pt before; Title Arial 14; headings Arial bold, H2/H3 italic; captions italic 12 single, 12 pt after; references 12 single); 20 paragraphs with an undefined "BodyText" style set to Normal; equations kept 12 pt like the template; 11 tracked changes to accept |
-| P4 | ❌ | user: must be double-spaced. v6 safe cuts (wording repeats, captions, figures 13.5 cm @600 dpi, tables 10 pt, no gap after equations, no DOIs) = 17 pages; removing Table 2 → 17 full pages; 2 more pages need content decisions (list given to user) |
-| P5 | ✅ | v3: no supplementary file (user choice); 4 references changed to "available from the corresponding author on request" (tracked) |
+| P4 | ✅ | FINAL main: 15 pages double-spaced in the template format (measured with equations rendered) |
+| P5 | ✅ | FINAL supplement (5 pp): Notes S1 extremality, S2 first-order derivations, S3 numerical procedure, S4 Figs. S1–S2 + Table S1, S5 crossover steps + worked example; Eqs. (S1)–(S9). Named copy starts with title, authors, affiliations; BLIND copy (for upload) has none |
 | P6 | ⬜ | |
 | P7 | ⬜ | |
 | P8 | ✅ | not submitted elsewhere (user) |
@@ -82,7 +82,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | I5 | ⬜ | |
 | PL1 | ⬜ | |
 | SUB1 | ⬜ | |
-| SUB2 | ✅ | v5 BLIND files: author line + footnotes removed, tracked changes accepted, file properties scrubbed; nothing identifying left (verified); names go in form step 3 AUTHORS |
+| SUB2 | ✅ | FINAL main and supplement BLIND files: nothing identifying in text, footnotes or file properties (verified) |
 | SUB3 | ⬜ | |
 | SUB4 | ⬜ | |
 | SUB5 | 🔄 | form: steps 1, 2, 4–8 done; step 3 AUTHORS not done; step 9 upload the BLIND file; step 10 create PDF and check it; step 11 submit |
@@ -103,3 +103,4 @@ _(each stage appends one line: date · stage · version · result summary)_
 - 2026-11-07 · P4 · clarified: double spacing is inferred from the template file, not stated on the website; spacing variants measured (13/14/16/20 pages)
 - 2026-11-07 · SUB2 · submission screenshots: mutual anonymity, one file; v5 BLIND files built (no names, changes accepted, metadata scrubbed); checker gains --blind
 - 2026-11-07 · P4 · v6 length cuts (tracked); equations identical in symbols and structure (only table symbols 10 pt); 20 → 17 pages double-spaced
+- 2026-11-07 · FINAL · main 15 pp + supplement 5 pp; content moved, not deleted; equations renumbered and every reference verified; anonymity verified for both files
