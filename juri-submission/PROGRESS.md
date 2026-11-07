@@ -107,3 +107,4 @@ _(each stage appends one line: date · stage · version · result summary)_
 - 2026-11-07 · Stage 3 · FINAL · quick review; polynomial P(u) added as Eq. (S10); numerical procedure moved to §3.4; main 15 pp, supplement 5 pp
 - 2026-11-07 · P5 · author decision: the author's own original Notes S1–S3 not submitted; Data and Code Availability says they are available on request (described by content); main still 15 pp; anonymous check clean
 - 2026-11-07 · P5 · Data and Code Availability simplified: further working notes (the author's own) and scripts available on request
+- 2026-11-07 · P4 · Word showed 19 pages with gaps: removed 79 keep-with-next chains (kept headings, figure→caption, table title→table) and set body double spacing to exact 24 pt so inline Cambria Math lines are not taller; LibreOffice now 13 pp main, 4 pp supplement; no clipping
