@@ -167,14 +167,15 @@ class Paper:
     def top_sections(self):
         """Map canonical section -> (block index, heading text), top-level only."""
         found = {}
-        for i, lvl, text in self.headings():
-            if lvl != 1:
-                continue
-            clean = re.sub(r"^\d+(\.\d+)*\.?\s*", "", text).lower()
-            for key, pat in SECTIONS:
-                if key not in found and re.match(rf"^({pat})", clean):
-                    found[key] = (i, text)
-                    break
+        for want in (1, 2):
+            for i, lvl, text in self.headings():
+                if lvl != want:
+                    continue
+                clean = re.sub(r"^\d+(\.\d+)*\.?\s*", "", text).lower()
+                for key, pat in SECTIONS:
+                    if key not in found and re.match(rf"^({pat})", clean):
+                        found[key] = (i, text)
+                        break
         return found
 
     def section_range(self, key):
@@ -182,7 +183,8 @@ class Paper:
         if key not in secs:
             return None
         start = secs[key][0]
-        nexts = sorted(i for i, lvl, _ in self.headings() if lvl == 1 and i > start)
+        lvl0 = next(l for i, l, _ in self.headings() if i == start)
+        nexts = sorted(i for i, lvl, _ in self.headings() if lvl <= lvl0 and i > start)
         end = nexts[0] if nexts else len(self.blocks)
         return start + 1, end
 
@@ -275,7 +277,7 @@ def check(paper: Paper, render_pdf: bool) -> list[Result]:
     if not concl:
         R.append(Result("S9", "FAIL", "Conclusions section not found"))
     else:
-        lim = bool(re.search(r"limitation|limited\s+(to|by)|constrain|shortcoming", concl))
+        lim = bool(re.search(r"limitation|limited\s+(to|by)|constrain|shortcoming|caveat", concl))
         fut = bool(re.search(r"future\s+(work|research|stud)|further\s+(work|research|stud|investigat)|recommend", concl))
         miss = [n for n, ok in [("limitations", lim), ("future work", fut)] if not ok]
         R.append(Result("S9", "PASS" if not miss else "FAIL",
@@ -284,21 +286,29 @@ def check(paper: Paper, render_pdf: bool) -> list[Result]:
 
     # S10 / E2 funding ; E1 COI -------------------------------------------------
     ack = paper.section_text("acknowledgments").lower()
-    funding = bool(re.search(r"fund|grant|financial|support(ed)?\s+by|sponsor|project\s+(no|number)|no\s+(external\s+)?funding", ack + all_text.lower()[-4000:]))
+    pre_ref = "\n".join(b[2] for b in blocks[:body_end] if b[0] == "p").lower()
+    funding = bool(re.search(r"\bfund(?:ed|ing|s)?\b|\bgrants?\b|financial(?:ly)? support|supported\s+by|sponsor|project\s+(?:no|number)",
+                             ack + "\n" + pre_ref[-3000:] + "\n" + paper.extra_text().lower()))
     R.append(Result("E2", "PASS" if funding else "WARN",
                     "Funding statement found" if funding
                     else "No funding wording found. State the funding source, or write 'This research received no external funding.'"))
-    coi = bool(re.search(r"conflicts?\s+of\s+interest|competing\s+interests?|declare\s+no", all_text + paper.extra_text(), re.I))
+    coi = bool(re.search(r"conflicts?\s+of\s+interest|competing\s+interests?|declare\s+no", pre_ref + paper.extra_text(), re.I))
     R.append(Result("E1", "PASS" if coi else "FAIL",
                     "Conflict-of-interest statement found" if coi
                     else "No conflict-of-interest statement. Add e.g. 'The authors declare no conflict of interest.'"))
 
     # A2 / A3 author block ----------------------------------------------------
-    front = "\n".join(b[2] for b in blocks[: (secs.get("abstract", (8, ""))[0] + 1)]) + "\n" + paper.extra_text()
+    abs_i = secs.get("abstract", (8, ""))[0]
+    title_i = next((i for i, b in enumerate(blocks) if b[3] is not None and is_heading(b[3]) == 0), -1)
+    front_paras = [b[2].strip() for b in blocks[title_i + 1:abs_i] if b[0] == "p" and b[2].strip()]
+    front = "\n".join(front_paras) + "\n" + paper.extra_text()
+    R.append(Result("A1", "PASS" if front.strip() else "FAIL",
+                    f"Author block found ({len(front_paras)} line(s) between title and abstract)" if front.strip()
+                    else "No author names/affiliations between the title and the abstract, and none in footnotes"))
     R.append(Result("A3", "PASS" if re.search(r"\bmentor\b", front, re.I) else "FAIL",
                     "Mentor is designated as 'mentor'" if re.search(r"\bmentor\b", front, re.I)
                     else "The word 'mentor' was not found in the author block/footnotes"))
-    corr = bool(re.search(r"\*|corresponding", front, re.I))
+    corr = bool(re.search(r"[A-Za-z]\s?\*|corresponding\s+author", front, re.I))
     R.append(Result("A2", "PASS" if corr else "WARN",
                     "Corresponding author marked" if corr else "No corresponding-author mark (*) found"))
 
@@ -309,12 +319,28 @@ def check(paper: Paper, render_pdf: bool) -> list[Result]:
         d = (dp.get("descr") or "") + " " + (dp.get("title") or "")
         if any(a.lower() in d.lower() for a in ALT_TEXT_LEFTOVERS):
             alts.append(d.strip()[:80])
+    doc_xml = paper.zip.read("word/document.xml").decode("utf8", "replace")
+    n_ins, n_del = len(re.findall(r"<w:ins ", doc_xml)), len(re.findall(r"<w:del ", doc_xml))
+    n_com = len(re.findall(r"<w:comment ", paper.zip.read("word/comments.xml").decode("utf8", "replace"))) \
+        if "word/comments.xml" in paper.zip.namelist() else 0
+    if n_ins or n_del:
+        hits.append(f"{n_ins + n_del} tracked change(s) not accepted")
+    if n_com:
+        hits.append(f"{n_com} Word comment(s) left in the file")
+    normal = paper.doc.styles["Normal"]
+    fnt = normal.font.name or "theme default"
+    ls = normal.paragraph_format.line_spacing
+    R.append(Result("P3b", "INFO",
+                    f"Body typography: {fnt}, line spacing {ls if ls else 'default'}. The JURI template uses Arial 12 pt, "
+                    "double spacing, margins 2.54/3.17/2.54/1.79 cm - page count changes if you move to the template."))
     R.append(Result("P3", "FAIL" if hits or alts else "PASS",
                     "No template placeholder text left" if not (hits or alts) else "Template leftovers found",
                     [f"placeholder: '{h}'" for h in hits] + [f"auto alt text: '{a}'" for a in alts]))
 
     # Figures / tables / captions ----------------------------------------------
-    cap_re = re.compile(r"^\s*(Fig\.?|Figure|Table)\s*(\d+)?\s*[.:]?", re.I)
+    cap_re = re.compile(r"^\s*(Figure|Fig\.?|Table)\s*(\d+)?\s*[.:]?", re.I)
+    real_cap = re.compile(r"^\s*(Figure|Fig\.?|Table)\s*\d*\s*[.:]\s", re.I)
+    misstyled = []
     fig_caps, tab_caps, cap_issues = [], [], []
 
     def nonempty_neighbor(i, step):
@@ -333,7 +359,7 @@ def check(paper: Paper, render_pdf: bool) -> list[Result]:
         if not m or len(text) > 400:
             continue
         style = (par.style.name if par is not None and par.style is not None else "")
-        if style.lower() != "caption" and not re.match(r"^\s*(Fig\.?|Figure|Table)\s*\d+\s*[.:]", text):
+        if not real_cap.match(text):
             continue  # an ordinary sentence starting with "Table 1 shows..."
         label, num = m.group(1), m.group(2)
         if label.lower().startswith("tab"):
@@ -351,6 +377,13 @@ def check(paper: Paper, render_pdf: bool) -> list[Result]:
             if len(re.findall(r"\S+", text)) > 40:
                 cap_issues.append(("F3", f"Caption is long ({len(text.split())} words): '{text.strip()[:50]}...'"))
 
+    for i, (kind, el, text, par) in enumerate(blocks[:body_end]):
+        if kind == "p" and par is not None and par.style is not None and par.style.name.lower() == "caption" \
+                and text.strip() and not real_cap.match(text):
+            misstyled.append(text.strip()[:70])
+    R.append(Result("F3b", "FAIL" if misstyled else "PASS",
+                    f"{len(misstyled)} body paragraph(s) use the Caption style (Word treats them as captions)"
+                    if misstyled else "No body text in Caption style", misstyled))
     n_images = sum(1 for b in blocks[:body_end] if has_image(b[1]) and not has_math(b[1]))
     R.append(Result("F3", "PASS" if fig_caps and not [x for x in cap_issues if x[0] == "F3"] else ("INFO" if not fig_caps else "FAIL"),
                     f"{len(fig_caps)} figure captions; {sum(1 for x in cap_issues if x[0]=='F3')} position/length issue(s)"
@@ -379,11 +412,16 @@ def check(paper: Paper, render_pdf: bool) -> list[Result]:
     R.append(Result("F6", "PASS" if not tdet else "FAIL", "Table numbering" + (" OK" if not tdet else " issues"), tdet))
 
     # F7 / F8 in-text references to figures and tables ------------------------
-    body_paras = [b[2] for b in blocks[:body_end] if b[0] == "p" and not cap_re.match(b[2] or "")]
+    body_paras = [b[2] for b in blocks[:body_end] if b[0] == "p" and not real_cap.match(b[2] or "")]
     body_txt = "\n".join(body_paras)
     long_form = re.findall(r"\bFigures?\s+\d+", body_txt)
-    refs_fig = [int(x) for x in re.findall(r"\b(?:Fig\.?|Figs\.?|Figures?)\s*(\d+)", body_txt)]
-    refs_tab = [int(x) for x in re.findall(r"\bTables?\s*(\d+)", body_txt)]
+    def mentions(pat):
+        out = []
+        for m in re.finditer(pat + r"\s*(\d+(?:\s*(?:,|and|&|[-–])\s*\d+)*)", body_txt):
+            out += parse_cite_numbers(re.sub(r"and|&", ",", m.group(1)))
+        return out
+    refs_fig = mentions(r"\b(?:Figures?|Figs?\.?)")
+    refs_tab = mentions(r"\bTables?")
     f7 = []
     if long_form:
         f7.append(f"{len(long_form)} in-text 'Figure N' mention(s); the guide's format is '(Fig. N)'. e.g. {long_form[:3]}")
@@ -428,8 +466,8 @@ def check(paper: Paper, render_pdf: bool) -> list[Result]:
             dpi_rows.append((name, dpi, f"{im.size[0]}x{im.size[1]} px at {w_in*2.54:.1f} cm wide"))
         except Exception as e:  # noqa: BLE001
             dpi_rows.append((name, None, f"unreadable ({e.__class__.__name__})"))
-    low = [r for r in dpi_rows if r[1] is not None and r[1] < 300]
-    high = [r for r in dpi_rows if r[1] is not None and r[1] > 600]
+    low = [r for r in dpi_rows if r[1] is not None and r[1] < 295]
+    high = [r for r in dpi_rows if r[1] is not None and r[1] > 605]
     R.append(Result("F2", "FAIL" if low else ("WARN" if high else ("PASS" if dpi_rows else "INFO")),
                     (f"{len(dpi_rows)} image(s); {len(low)} below 300 dpi, {len(high)} above 600 dpi "
                      "(guide: 300-600)") if dpi_rows else "No raster images found",
@@ -506,10 +544,13 @@ def check(paper: Paper, render_pdf: bool) -> list[Result]:
 
     fmt_issues = []
     bold_vol = 0
+    paren_numbered = False
     for k, (txt, el) in enumerate(ref_entries, 1):
-        t = re.sub(r"^\s*\[?\d+[.)\]]\s*", "", txt)
+        if re.match(r"^\s*[\[(]\d+[\])]", txt):
+            paren_numbered = True
+        t = re.sub(r"^\s*[\[(]?\d+[.)\]]\s*", "", txt)
         probs = []
-        if not re.search(r"\((?:19|20)\d{2}[a-z]?\)\.?\s*(https?://\S+|doi:\S+)?\s*$", t):
+        if not re.search(r"(?:\(|,\s)(?:1[5-9]|20)\d{2}[a-z]?\)\.?\s*(https?://\S+|doi:\s?\S+)?\s*$", t):
             probs.append("does not end with '(year).'")
         # Author segment ends after the last initial (or "et al.") that precedes the title.
         m_auth = re.match(r"^((?:[^.]*?(?:\b[A-Z]\.|et al\.)[\s-]*)+?)(?=\s*[A-Z0-9][a-z0-9]{1,}\b(?!\.))", t)
@@ -526,6 +567,8 @@ def check(paper: Paper, render_pdf: bool) -> list[Result]:
             bold_vol += 1
         if probs:
             fmt_issues.append(f"Ref {k}: " + "; ".join(probs) + f" — '{t[:70]}...'")
+    if paren_numbered:
+        fmt_issues.insert(0, "Reference list numbered '(1)' / '[1]'; Nature numbers the list '1.', '2.'")
     if ref_entries and bold_vol < len(ref_entries) * 0.5:
         fmt_issues.append(f"Only {bold_vol}/{n_refs} entries have a bold volume number (Nature: **vol**)")
     R.append(Result("R4", "PASS" if not fmt_issues else "WARN",
@@ -571,9 +614,9 @@ def check(paper: Paper, render_pdf: bool) -> list[Result]:
     return R
 
 
-ORDER = ["P1", "P2", "P3", "P4", "S2", "S3", "S4", "S6", "S7", "S8", "S9", "S10", "S11",
-         "R1", "R2", "R3", "R4", "R7", "F2", "F3", "F4", "F5", "F6", "F7", "F8", "F9",
-         "F10", "F11", "F12", "A2", "A3", "E1", "E2", "SUB2"]
+ORDER = ["P1", "P2", "P3", "P3b", "P4", "S2", "S3", "S4", "S6", "S7", "S8", "S9", "S10", "S11",
+         "R1", "R2", "R3", "R4", "R7", "F2", "F3", "F3b", "F4", "F5", "F6", "F7", "F8", "F9",
+         "F10", "F11", "F12", "A1", "A2", "A3", "E1", "E2", "SUB2"]
 
 
 def render(results: list[Result], paper: Path) -> str:
