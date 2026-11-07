@@ -1,6 +1,6 @@
 # Changes from the mentor's version to the final submission files
 
-Compared: `Bardeen_JURI_Final.docx` (the mentor's version; byte-identical to the file first given to the AI assistant) against `Bardeen_JURI_FINAL_main_BLIND.docx` plus `Bardeen_JURI_FINAL_supplement_BLIND.docx`.
+Compared: `Bardeen_JURI_Final.docx` (the version last improved by the mentor; byte-identical to the file first given to the AI assistant) against `Bardeen_JURI_FINAL_main_BLIND.docx` plus `Bardeen_JURI_FINAL_supplement_BLIND.docx`.
 
 **What did not change:** every equation is the same mathematics, renumbered only; every number, table value, figure and result is the same; every citation is kept. The results were recomputed independently and match: Table 1, Table 2, Eq. (23), the orderings, ϵ꜀ = 0.0809218378978111 and the crossing radii.
 
@@ -74,13 +74,13 @@ These restate the authors' own content or replace moved material. They contain n
 9. **§4.2.2:** "Combining Eq. (25) with a parameterization of the full horizon equation reduces the crossover condition to a degree-sixteen polynomial. After an exact rational transformation, Descartes' rule of signs shows that this polynomial has exactly one root on the common outer-horizon branch (Supplementary Note S5). The crossover lies at" and "Supplementary Note S5 gives a worked example at a larger deformation."
 10. **Conclusions:** "The study has three main limitations: it concerns only neutral massive particles and background-metric null rays, its numerical error bounds hold only on the sampled benchmark interval, and the nominal efficiency omits disk stresses and radiation-transfer corrections."
 11. **Acknowledgments / Conflict of Interest:** "This research received no external funding." and "The authors declare no conflict of interest."
-12. **Data and Code Availability:** "Supplementary Notes S1–S5 accompany this article. The authors’ detailed derivation notes (the full accuracy-ratio algebra, the horizon-crossover calculation and a comparison with the closest literature), together with the scripts and data that reproduce all reported values and figures, are available from the corresponding author on reasonable request; no observational data were analysed."
+12. **Data and Code Availability:** "Supplementary Notes S1–S5 accompany this article. Further working notes on the derivations and the Python scripts that reproduce all reported values and figures are available from the corresponding author on reasonable request. No observational data were analysed."
 13. **Supplement:**
     - The opening note.
     - The Note headings.
     - "Figs. S1 and S2 show the numerical results on the benchmark grid of Note S3…"
     - "This note gives the steps behind the single crossover stated in Section 4.2.2, starting from Eq. (25)."
-    - **Eq. (S10): the explicit polynomial P(u)**, followed by the root-count paragraph: "The substitution u = (9 + 10t)/(10 + 10t) maps t > 0 onto 9/10 < u < 1. The coefficients of (10 + 10t)¹⁶ P(u) … change sign exactly once, and P(9/10) > 0 > P(1) = −24, so P has exactly one root …, u꜀ = 0.968910490219146 …" ⚠ This is the one piece of new mathematics. It was derived from Eqs. (14), (25) and (S9), and checked symbolically and by solving the horizon equations directly. It reproduces ϵ꜀ to all 16 digits. Please compare it with your own Note S2 / scripts.
+    - **Eq. (S10): the explicit polynomial P(u)**, followed by the root-count paragraph: "The substitution u = (9 + 10t)/(10 + 10t) maps t > 0 onto 9/10 < u < 1. The coefficients of (10 + 10t)¹⁶ P(u) … change sign exactly once, and P(9/10) > 0 > P(1) = −24, so P has exactly one root …, u꜀ = 0.968910490219146 …" ⚠ This is the one piece of new mathematics. It was derived from Eqs. (14), (25) and (S9), and checked symbolically and by solving the horizon equations directly. It reproduces ϵ꜀ to all 16 digits. The author should compare it with their own notes and scripts.
     - S5.2: "The first-order horizon is therefore the closer of the two at this deformation, consistent with the single crossover reported in Section 4.2.2 of the main text."
 
 ## 5. Formatting
@@ -92,7 +92,7 @@ These restate the authors' own content or replace moved material. They contain n
   - Tables at 10 pt.
 - **Anonymity:** author names and affiliations removed from the upload files (journal rule), and kept in the `_named` copies.
 
-## 6. The mentor's original notes
-Your version referred to **existing supplementary files**: "Supplementary Notes S1 and S2 give the accuracy-ratio and horizon-crossover calculations, and Note S3 compares their scope with the closest literature", plus the Python code. The final supplement was rebuilt from material in the paper and **reuses the names S1–S5 with different content**. If your original notes exist, the supplement should be merged with them, or replaced by them, before submission.
+## 6. The author's original notes
+The previous version referred to **existing supplementary files** (the student author's own research notes): "Supplementary Notes S1 and S2 give the accuracy-ratio and horizon-crossover calculations, and Note S3 compares their scope with the closest literature", plus the Python code. The final supplement was rebuilt from material in the paper and **reuses the names S1–S5 with different content**. 
 
-**Decision (author, 2026-11-07):** the original notes are not submitted. The Data and Code Availability statement now says they are available on request, described by their content (not as "S1–S3", to avoid clashing with the supplement's Notes S1–S5). Please keep them ready in case a reviewer asks.
+**Decision (student author, 2026-11-07):** the author's original notes are not submitted. The Data and Code Availability statement says that further working notes and the scripts are available on request; it does not call them "S1–S3", which would clash with the supplement's Notes S1–S5. The author keeps them ready in case a reviewer asks.
