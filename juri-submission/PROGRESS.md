@@ -3,8 +3,8 @@
 Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix needed · ⚠️ warning, decide · N/A (with a reason)
 
 **Paper file:** `paper/Bardeen_JURI_v1.docx` (local only, not committed)
-**Current version:** v4 (`paper/Bardeen_JURI_v4.docx`; local scripts `paper/build_base.py` → `paper/edits_v3.py` → `paper/style_v4.py`; preview `preview/Bardeen_JURI_v4_preview.html`)
-**Next step:** send the page-limit email to juri-dr@kfupm.edu.sa; YOU accept the tracked edits; answer the figures question; Stage 3 guided review; Turnitin.
+**Current version:** v5 BLIND for upload (`paper/Bardeen_JURI_v5_BLIND_1.15.docx` 14 pp, `paper/Bardeen_JURI_v5_BLIND_double.docx` 20 pp; made from v4 by `paper/blind_v5.py`). Named working copy: v4
+**Next step:** user picks spacing (journal email pending) → Turnitin on the BLIND file → form step 3 AUTHORS → upload the BLIND file → check the generated PDF → submit.
 
 ## Stages
 | Stage | Status | Version | Date | Notes |
@@ -62,9 +62,9 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | P6 | ⬜ | |
 | P7 | ⬜ | |
 | P8 | ✅ | not submitted elsewhere (user) |
-| A1 | ✅ | v2: author line + affiliation footnotes; mentor verified on ORCID (Assistant Professor, Physics, KFUPM) and KFUPM Physics faculty list ("Abdallah M. Al-Zahrani") |
-| A2 | ✅ | v2: Fajer Almindeel marked * corresponding, email in footnote |
-| A3 | ✅ | v2: "Research Mentor" in footnote 2 |
+| A1 | ✅ | names NOT in the file (mutual anonymity); enter both authors in form step 3 AUTHORS (still grey in the user's screenshot) |
+| A2 | 🔄 | set Fajer Almindeel as corresponding author in form step 3 |
+| A3 | 🔄 | add the mentor in form step 3 (role: mentor if the form offers it) |
 | A4 | ✅ | two authors only (user) |
 | A5 | ✅ | no minor contributors (user, 2026-11-07) |
 | A6 | ⬜ | |
@@ -82,14 +82,14 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | I5 | ⬜ | |
 | PL1 | ⬜ | |
 | SUB1 | ⬜ | |
-| SUB2 | ⬜ | |
+| SUB2 | ✅ | v5 BLIND files: author line + footnotes removed, tracked changes accepted, file properties scrubbed; nothing identifying left (verified); names go in form step 3 AUTHORS |
 | SUB3 | ⬜ | |
 | SUB4 | ⬜ | |
-| SUB5 | ⬜ | |
+| SUB5 | 🔄 | form: steps 1, 2, 4–8 done; step 3 AUTHORS not done; step 9 upload the BLIND file; step 10 create PDF and check it; step 11 submit |
 | Q1 | ⬜ | keywords 4–8 |
 | Q2 | ✅ | followed the Guide for Authors: "Fig. N" |
 | Q3 | ⬜ | equation alignment |
-| Q4 | ⬜ | anonymized file? |
+| Q4 | ✅ | submission system: one anonymous manuscript-body file |
 
 ## Run log
 _(each stage appends one line: date · stage · version · result summary)_
@@ -101,3 +101,4 @@ _(each stage appends one line: date · stage · version · result summary)_
 - 2026-11-07 · P4 · page counts re-measured with the equation module installed (earlier counts drew equations as blank): v1 12, v3 18, exact template spacing 19
 - 2026-11-07 · Stage 6 · v4 · template styles matched; undefined BodyText style fixed; text and equations unchanged (verified); 20 pages strict template; JURI sample template = 16 pages
 - 2026-11-07 · P4 · clarified: double spacing is inferred from the template file, not stated on the website; spacing variants measured (13/14/16/20 pages)
+- 2026-11-07 · SUB2 · submission screenshots: mutual anonymity, one file; v5 BLIND files built (no names, changes accepted, metadata scrubbed); checker gains --blind
