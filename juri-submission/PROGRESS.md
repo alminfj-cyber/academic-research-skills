@@ -57,7 +57,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | P1 | ✅ | English |
 | P2 | ✅ | .docx |
 | P3 | ⚠️ | v3: correct template typography (Times New Roman 12 double-spaced body, Arial headings, template margins); 11 tracked changes must be accepted before submission |
-| P4 | ❌ | v3: 16 LibreOffice pages with edits accepted ≈ 19 Word pages (LibreOffice cannot draw the 229 equations; v1 was 10 LibreOffice = 12 Word) → over 15; decision needed |
+| P4 | ❌ | measured with equations rendered (libreoffice-math installed; original = 12 pages, same as the author's Word): margins +1 → 13, double spacing +4 → 17, added sections/edits +1 → v3 = 18; with the template's exact paragraph spacing (12 pt before, 0 after) = 19 → over 15 |
 | P5 | ✅ | v3: no supplementary file (user choice); 4 references changed to "available from the corresponding author on request" (tracked) |
 | P6 | ⬜ | |
 | P7 | ⬜ | |
@@ -98,3 +98,4 @@ _(each stage appends one line: date · stage · version · result summary)_
 - 2026-11-07 · Stage 0 · v1 · intake partly answered (no funding, no acknowledgments, not submitted elsewhere, no supp files preferred); personal details kept in local paper/intake.md
 - 2026-11-07 · Stage 6 · v2 · compliance edits (structure, author block, statements, typography, Fig./ref formats); wording unchanged except headings/cross-refs (verified by word diff); 229 equations byte-identical; checker 11 → 4 FAIL
 - 2026-11-07 · Stage 6 · v3 · fixed v2 bugs (body font Arial→Times New Roman per template; Methodology subsections misnumbered 4.1.x→3.x); tracked AI edits: gap paragraph, limitations, supplementary references; equations byte-identical
+- 2026-11-07 · P4 · page counts re-measured with the equation module installed (earlier counts drew equations as blank): v1 12, v3 18, exact template spacing 19
