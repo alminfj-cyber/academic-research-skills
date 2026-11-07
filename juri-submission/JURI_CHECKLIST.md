@@ -126,7 +126,7 @@ All of these tools only check. None of them rewrites your paper, which keeps you
 | ID | Rule | Check |
 |---|---|---|
 | SUB1 | Submit online through the [Editorial System](https://www.editorialsystem.com/juri/) (no fees) | YOU |
-| SUB2 | Peer review is **double-anonymized**: check whether the system asks for a blinded file without names, affiliations or acknowledgments | YOU / ASK |
+| SUB2 | **Mutual anonymity (submission system, confirmed 2026-11-07):** authors' names and affiliations must NOT appear in the uploaded text, tables or figures, or in the file properties. Names go into the form (step 3 AUTHORS). Upload one manuscript-body file (DOC/DOCX/RTF/ODT, ≤32 MB); the system converts it to PDF | AUTO (`--blind`) |
 | SUB3 | Any reviewers you suggest have no conflict of interest | YOU |
 | SUB4 | The paper passes the Editorial Board's first compliance check (every AUTO item passes) | AUTO summary |
 | SUB5 | Every field the submission form asks for is filled. The form couldn't be read in advance; check at login for a cover letter, ORCID, or declarations. | YOU |
@@ -137,4 +137,4 @@ All of these tools only check. None of them rewrites your paper, which keeps you
 | Q1 | Keywords: "a maximum of 4-8" is read here as "between 4 and 8". |
 | Q2 | Fig. or Figure: the guidelines say "Fig.1" and "(Fig.4, Table 1.)", but the template's sample text uses "Figure 1". The guidelines are followed here. |
 | Q3 | Equation layout: "center justified… and right justified" is read here as the equation centred and its number on the right. |
-| Q4 | Does a double-anonymized review need a separate anonymized file? (SUB2) |
+| Q4 | ~~Anonymized file?~~ Answered by the submission system: the single uploaded file must be anonymous (SUB2). |

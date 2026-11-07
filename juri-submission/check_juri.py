@@ -643,11 +643,25 @@ def main() -> int:
     ap.add_argument("paper", type=Path)
     ap.add_argument("--out", type=Path)
     ap.add_argument("--no-pdf", action="store_true", help="skip LibreOffice page-count render")
+    ap.add_argument("--blind", action="store_true",
+                    help="anonymous submission file: names/affiliations must be ABSENT (JURI mutual anonymity)")
     a = ap.parse_args()
     if not a.paper.is_file():
         print(f"not found: {a.paper}", file=sys.stderr)
         return 2
-    results = check(Paper(a.paper), render_pdf=not a.no_pdf)
+    paper = Paper(a.paper)
+    results = check(paper, render_pdf=not a.no_pdf)
+    if a.blind:
+        results = [r for r in results if r.rid not in ("A1", "A2", "A3")]
+        front = paper.extra_text() + "\n" + "\n".join(b[2] for b in paper.blocks[:6])
+        hits = sorted(set(re.findall(r"(?i)\b(?:mentor|corresponding author|e-?mail|orcid|university|department of)\b|@\w", front)))
+        props = paper.zip.read("docProps/core.xml").decode("utf8", "replace")
+        creator = re.findall(r"<dc:creator>([^<]+)<|<cp:lastModifiedBy>([^<]+)<", props)
+        results.append(Result("SUB2", "FAIL" if hits or creator else "PASS",
+                              "Anonymous file: no names/affiliations in the front matter or file properties"
+                              if not (hits or creator) else "Identifying information found in the anonymous file",
+                              [f"text: {h}" for h in hits] + [f"file property: {c}" for c in creator]))
+        results = [r for r in results if not (r.rid == "SUB2" and r.status == "INFO")]
     report = render(results, a.paper)
     if a.out:
         a.out.write_text(report, encoding="utf8")
