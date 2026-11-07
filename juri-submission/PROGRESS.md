@@ -105,3 +105,4 @@ _(each stage appends one line: date · stage · version · result summary)_
 - 2026-11-07 · P4 · v6 length cuts (tracked); equations identical in symbols and structure (only table symbols 10 pt); 20 → 17 pages double-spaced
 - 2026-11-07 · FINAL · main 15 pp + supplement 5 pp; content moved, not deleted; equations renumbered and every reference verified; anonymity verified for both files
 - 2026-11-07 · Stage 3 · FINAL · quick review; polynomial P(u) added as Eq. (S10); numerical procedure moved to §3.4; main 15 pp, supplement 5 pp
+- 2026-11-07 · P5 · author decision: mentor's original Notes S1–S3 not submitted; Data and Code Availability says they are available on request (described by content); main still 15 pp; anonymous check clean

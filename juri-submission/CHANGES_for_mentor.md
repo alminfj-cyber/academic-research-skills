@@ -74,7 +74,7 @@ These restate the authors' own content or replace moved material. They contain n
 9. **§4.2.2:** "Combining Eq. (25) with a parameterization of the full horizon equation reduces the crossover condition to a degree-sixteen polynomial. After an exact rational transformation, Descartes' rule of signs shows that this polynomial has exactly one root on the common outer-horizon branch (Supplementary Note S5). The crossover lies at" and "Supplementary Note S5 gives a worked example at a larger deformation."
 10. **Conclusions:** "The study has three main limitations: it concerns only neutral massive particles and background-metric null rays, its numerical error bounds hold only on the sampled benchmark interval, and the nominal efficiency omits disk stresses and radiation-transfer corrections."
 11. **Acknowledgments / Conflict of Interest:** "This research received no external funding." and "The authors declare no conflict of interest."
-12. **Data and Code Availability:** "Supplementary Notes S1–S5 accompany this article. The scripts and data that reproduce all reported values and figures are available from the corresponding author on reasonable request; no observational data were analysed."
+12. **Data and Code Availability:** "Supplementary Notes S1–S5 accompany this article. The authors’ detailed derivation notes (the full accuracy-ratio algebra, the horizon-crossover calculation and a comparison with the closest literature), together with the scripts and data that reproduce all reported values and figures, are available from the corresponding author on reasonable request; no observational data were analysed."
 13. **Supplement:**
     - The opening note.
     - The Note headings.
@@ -92,5 +92,7 @@ These restate the authors' own content or replace moved material. They contain n
   - Tables at 10 pt.
 - **Anonymity:** author names and affiliations removed from the upload files (journal rule), and kept in the `_named` copies.
 
-## 6. Open question for the mentor
+## 6. The mentor's original notes
 Your version referred to **existing supplementary files**: "Supplementary Notes S1 and S2 give the accuracy-ratio and horizon-crossover calculations, and Note S3 compares their scope with the closest literature", plus the Python code. The final supplement was rebuilt from material in the paper and **reuses the names S1–S5 with different content**. If your original notes exist, the supplement should be merged with them, or replaced by them, before submission.
+
+**Decision (author, 2026-11-07):** the original notes are not submitted. The Data and Code Availability statement now says they are available on request, described by their content (not as "S1–S3", to avoid clashing with the supplement's Notes S1–S5). Please keep them ready in case a reviewer asks.
