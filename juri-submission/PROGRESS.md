@@ -9,7 +9,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 ## Stages
 | Stage | Status | Version | Date | Notes |
 |---|---|---|---|---|
-| 0 Intake | 🔄 | v1 | 2026-11-07 | paper received; 8 questions awaiting answers |
+| 0 Intake | 🔄 | v1 | 2026-11-07 | answered: authors, funding, acknowledgments, prior submission, supp. Pending: AI use, figures, Turnitin, mentor dept, COI, supplementary decision |
 | 1 Format check (`check_juri.py`) | ✅ | v1 | 2026-11-07 | 11 FAIL, 5 WARN, report reports/stage1_v1.md |
 | 2 References (`/ars-citation-check` + R4) | ✅ | v1 | 2026-11-07 | 18/18 DOIs verified; 4 non-DOI classics for you to confirm |
 | 3 Content review (guided `/ars-reviewer`) | ⬜ | | | |
@@ -38,7 +38,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | S7 | ❌ | no Methodology section; method content is in §2 and §4.1 |
 | S8 | ❌ | no "Results and Discussion" heading; results are in §3–§4 |
 | S9 | ⚠️ | future work present; limitations implied ("concerns neutral massive particles…") but not stated as limitations; §4.4 has them |
-| S10 | ❌ | no Acknowledgments section |
+| S10 | ❌ | add Acknowledgments heading with the no-funding sentence (nobody to thank) |
 | S11 | ❌ | missing: Literature Review, Methodology, Results and Discussion, Acknowledgments |
 | F1 | ⬜ | |
 | F2 | ✅ | 4 images, 584–600 dpi |
@@ -58,23 +58,23 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | P2 | ✅ | .docx |
 | P3 | ❌ | not in template typography: Times New Roman, ~1.08 spacing, A4 margins 2.16/2.16/2.54/1.79 cm. Template: Arial 12, double spacing, 2.54/3.17/2.54/1.79 cm. No comments/tracked changes left |
 | P4 | ⚠️ | 10 pages as is; ~17 pages when set in the template typography (LibreOffice simulation) → over the 15-page limit |
-| P5 | ⬜ | Data & Code Availability mentions supplementary files/Notes S1–S3 → YOU confirm file exists and starts with title, authors, affiliations |
+| P5 | ❌ | user prefers no supplementary file, but the paper cites "supplementary notes" in Intro (para 8), §3.6, §4.3 and Data & Code Availability (Notes S1–S3, code) → decision needed |
 | P6 | ⬜ | |
 | P7 | ⬜ | |
-| P8 | ⬜ | |
-| A1 | ❌ | no author names or affiliations anywhere in the file |
-| A2 | ❌ | no corresponding author marked |
-| A3 | ❌ | no mentor listed |
-| A4 | ⬜ | |
-| A5 | ⬜ | |
+| P8 | ✅ | not submitted elsewhere (user) |
+| A1 | 🔄 | author details received (stored locally in paper/intake.md); add the author block to the paper; mentor department/title still needed |
+| A2 | 🔄 | first author = corresponding author; add * and email in the author block |
+| A3 | 🔄 | mentor named; label as "Mentor" in the author block |
+| A4 | ⬜ | confirm: only two people (student + mentor)? |
+| A5 | ✅ | no minor contributors (user, 2026-11-07) |
 | A6 | ⬜ | |
-| E1 | ❌ | no conflict-of-interest statement |
-| E2 | ❌ | no funding statement (write the source or "no external funding") |
+| E1 | ❌ | add statement; user has no conflicts? → confirm, then "The authors declare no conflict of interest." |
+| E2 | ❌ | no funding (user) → add "This research received no external funding." |
 | E3 | ⬜ | |
 | E4 | ⬜ | |
 | E5 | ⬜ | |
 | E6 | ⬜ | |
-| E7 | ⬜ | |
+| E7 | ✅ | no prior submission/publication (user) |
 | I1 | ⬜ | |
 | I2 | ⬜ | |
 | I3 | ⬜ | |
@@ -95,3 +95,4 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 _(each stage appends one line: date · stage · version · result summary)_
 - 2026-11-07 · Stage 1 · v1 · format check: 11 FAIL / 5 WARN; checker false results fixed after manual verification (abstract heading level, '*' in 'Sagittarius A*', 'fundamental' ≠ funding, 'Figs. 1 and 2')
 - 2026-11-07 · Stage 2 · v1 · Crossref: 18/18 DOIs match; refs 1, 2, 3, 11 unindexed books/proceedings
+- 2026-11-07 · Stage 0 · v1 · intake partly answered (no funding, no acknowledgments, not submitted elsewhere, no supp files preferred); personal details kept in local paper/intake.md
