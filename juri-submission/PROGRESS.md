@@ -4,7 +4,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 
 **Paper file:** `paper/Bardeen_JURI_v1.docx` (local only, not committed)
 **Current version:** FINAL. Upload: `paper/Bardeen_JURI_FINAL_main_BLIND.docx` (15 pp) + `paper/Bardeen_JURI_FINAL_supplement_BLIND.docx` (5 pp). Named copies: `..._main_named.docx`, `..._supplement_named.docx`. Built by `paper/final_build.py` from v6 + `paper/blind_v5.py` + `paper/supp_versions.py`
-**Next step:** user reads the final files → Turnitin (≤15%) → form step 3 AUTHORS → upload main as Manuscript body and the supplement as supplementary material (check the form has a slot) → check generated PDF → submit.
+**Next step:** user: open both files in Word (≤15 pages), decide W3–W5, Turnitin ≤15%, form step 3 AUTHORS, upload main + supplement, check generated PDF, submit.
 
 ## Stages
 | Stage | Status | Version | Date | Notes |
@@ -12,7 +12,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | 0 Intake | 🔄 | v1 | 2026-11-07 | answered: authors, funding, acknowledgments, prior submission, supp. Pending: AI use, figures, Turnitin, mentor dept, COI, supplementary decision |
 | 1 Format check (`check_juri.py`) | ✅ | v1 | 2026-11-07 | 11 FAIL, 5 WARN, report reports/stage1_v1.md |
 | 2 References (`/ars-citation-check` + R4) | ✅ | v1 | 2026-11-07 | 18/18 DOIs verified; 4 non-DOI classics for you to confirm |
-| 3 Content review (guided `/ars-reviewer`) | ⬜ | | | |
+| 3 Content review (guided `/ars-reviewer`) | ✅ | FINAL | 2026-11-07 | quick mode; all numbers recomputed and matching; W1 (methodology lacked numerical procedure) and W2 fixed; W3–W5 author decisions; report reports/stage3_review.md |
 | 4 Your declarations | ⬜ | | | |
 | 5 Turnitin (PL1) | ⬜ | | | |
 | 6 Fix loop | 🔄 | v2 | 2026-11-07 | mechanical/compliance fixes done; author-only items marked as Word comments |
@@ -35,8 +35,8 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | S4 | ✅ | 6 keywords |
 | S5 | ✅ | v6: result summary removed from the Introduction (JURI: Introduction must not summarise results) |
 | S6 | ✅ | v3: tracked AI edit adds the research-gap paragraph at the end of the Literature Review (restates the author's own claim from the Introduction, bounded to the cited studies) → YOU accept/reject; check it matches your comparison with Kobialko & Gal'tsov |
-| S7 | ✅ | v2: "3. METHODOLOGY: GEOMETRY AND GEODESIC EQUATIONS" |
-| S8 | ✅ | v2: "4. RESULTS AND DISCUSSION" (old §3 → 4.1, old §4 → 4.2); 4 cross-references renumbered |
+| S7 | ✅ | numerical procedure now in Methodology §3.4 (Stage 3 W1) |
+| S8 | ✅ | Stage 3: results recomputed independently (Tables 1–2, Eq. 23, crossover) and match |
 | S9 | ✅ | v3: tracked AI edit states three limitations explicitly (taken from §4.2.4) |
 | S10 | ✅ | v2: ACKNOWLEDGMENTS section added |
 | S11 | ✅ | v2: all sections present, in order |
@@ -58,7 +58,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | P2 | ✅ | .docx |
 | P3 | ⚠️ | v4: all template paragraph styles matched (Normal TNR 12 double, 12 pt before; Title Arial 14; headings Arial bold, H2/H3 italic; captions italic 12 single, 12 pt after; references 12 single); 20 paragraphs with an undefined "BodyText" style set to Normal; equations kept 12 pt like the template; 11 tracked changes to accept |
 | P4 | ✅ | FINAL main: 15 pages double-spaced in the template format (measured with equations rendered) |
-| P5 | ✅ | FINAL supplement (5 pp): Notes S1 extremality, S2 first-order derivations, S3 numerical procedure, S4 Figs. S1–S2 + Table S1, S5 crossover steps + worked example; Eqs. (S1)–(S9). Named copy starts with title, authors, affiliations; BLIND copy (for upload) has none |
+| P5 | ✅ | supplement: Notes S1–S5, Eqs. (S1)–(S10) incl. the explicit crossover polynomial (verified symbolically and numerically) |
 | P6 | ⬜ | |
 | P7 | ⬜ | |
 | P8 | ✅ | not submitted elsewhere (user) |
@@ -104,3 +104,4 @@ _(each stage appends one line: date · stage · version · result summary)_
 - 2026-11-07 · SUB2 · submission screenshots: mutual anonymity, one file; v5 BLIND files built (no names, changes accepted, metadata scrubbed); checker gains --blind
 - 2026-11-07 · P4 · v6 length cuts (tracked); equations identical in symbols and structure (only table symbols 10 pt); 20 → 17 pages double-spaced
 - 2026-11-07 · FINAL · main 15 pp + supplement 5 pp; content moved, not deleted; equations renumbered and every reference verified; anonymity verified for both files
+- 2026-11-07 · Stage 3 · FINAL · quick review; polynomial P(u) added as Eq. (S10); numerical procedure moved to §3.4; main 15 pp, supplement 5 pp
