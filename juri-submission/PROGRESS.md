@@ -3,8 +3,8 @@
 Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix needed · ⚠️ warning, decide · N/A (with a reason)
 
 **Paper file:** `paper/Bardeen_JURI_v1.docx` (local only, not committed)
-**Current version:** v5 BLIND for upload (`paper/Bardeen_JURI_v5_BLIND_1.15.docx` 14 pp, `paper/Bardeen_JURI_v5_BLIND_double.docx` 20 pp; made from v4 by `paper/blind_v5.py`). Named working copy: v4
-**Next step:** user picks spacing (journal email pending) → Turnitin on the BLIND file → form step 3 AUTHORS → upload the BLIND file → check the generated PDF → submit.
+**Current version:** v6: `paper/Bardeen_JURI_v6_BLIND_double.docx` (upload candidate, 17 pp) and `paper/Bardeen_JURI_v6_named_tracked.docx` (cuts as tracked changes); made by `paper/cuts_v6.py WFEBR` from v4 with changes accepted
+**Next step:** user reviews the v6 cuts and decides on the content candidates for the last 2 pages (Table 2, numerical-procedure detail, §4.2.4, example at ε = 0.10, extremality detail).
 
 ## Stages
 | Stage | Status | Version | Date | Notes |
@@ -24,7 +24,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | R1 | ✅ | 34 superscript citation numbers |
 | R2 | ✅ | numbered in order of first citation |
 | R3 | ✅ | 22 refs, all cited, none missing |
-| R4 | ✅ | v2: list "1." numbering; page ranges en dash |
+| R4 | ✅ | v6: DOIs removed (Nature style); endings '(year).' verified |
 | R5 | ⚠️ | 18/18 DOIs resolve and match (Crossref). Refs 1, 2, 3, 11 are books/proceedings with no DOI → YOU confirm details (esp. ref 11 page 174, ref 3 pages 343–450) |
 | R6 | ⬜ | |
 | R7 | ✅ | no long direct quotes |
@@ -33,7 +33,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | S2 | ✅ | 195 words |
 | S3 | ⬜ | |
 | S4 | ✅ | 6 keywords |
-| S5 | ⬜ | |
+| S5 | ✅ | v6: result summary removed from the Introduction (JURI: Introduction must not summarise results) |
 | S6 | ✅ | v3: tracked AI edit adds the research-gap paragraph at the end of the Literature Review (restates the author's own claim from the Introduction, bounded to the cited studies) → YOU accept/reject; check it matches your comparison with Kobialko & Gal'tsov |
 | S7 | ✅ | v2: "3. METHODOLOGY: GEOMETRY AND GEODESIC EQUATIONS" |
 | S8 | ✅ | v2: "4. RESULTS AND DISCUSSION" (old §3 → 4.1, old §4 → 4.2); 4 cross-references renumbered |
@@ -57,7 +57,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | P1 | ✅ | English |
 | P2 | ✅ | .docx |
 | P3 | ⚠️ | v4: all template paragraph styles matched (Normal TNR 12 double, 12 pt before; Title Arial 14; headings Arial bold, H2/H3 italic; captions italic 12 single, 12 pt after; references 12 single); 20 paragraphs with an undefined "BodyText" style set to Normal; equations kept 12 pt like the template; 11 tracked changes to accept |
-| P4 | ⚠️ | NOT a written rule: the website gives no line spacing; double spacing comes only from the template file's Normal style. v4 = 20 pages double, 16 at 1.5, 14 at 1.15, 13 at the original 1.08 (equations rendered) → ask the editorial office |
+| P4 | ❌ | user: must be double-spaced. v6 safe cuts (wording repeats, captions, figures 13.5 cm @600 dpi, tables 10 pt, no gap after equations, no DOIs) = 17 pages; removing Table 2 → 17 full pages; 2 more pages need content decisions (list given to user) |
 | P5 | ✅ | v3: no supplementary file (user choice); 4 references changed to "available from the corresponding author on request" (tracked) |
 | P6 | ⬜ | |
 | P7 | ⬜ | |
@@ -102,3 +102,4 @@ _(each stage appends one line: date · stage · version · result summary)_
 - 2026-11-07 · Stage 6 · v4 · template styles matched; undefined BodyText style fixed; text and equations unchanged (verified); 20 pages strict template; JURI sample template = 16 pages
 - 2026-11-07 · P4 · clarified: double spacing is inferred from the template file, not stated on the website; spacing variants measured (13/14/16/20 pages)
 - 2026-11-07 · SUB2 · submission screenshots: mutual anonymity, one file; v5 BLIND files built (no names, changes accepted, metadata scrubbed); checker gains --blind
+- 2026-11-07 · P4 · v6 length cuts (tracked); equations identical in symbols and structure (only table symbols 10 pt); 20 → 17 pages double-spaced
