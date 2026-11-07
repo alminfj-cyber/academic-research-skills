@@ -3,8 +3,8 @@
 Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix needed · ⚠️ warning, decide · N/A (with a reason)
 
 **Paper file:** `paper/Bardeen_JURI_v1.docx` (local only, not committed)
-**Current version:** v3 (`paper/Bardeen_JURI_v3.docx`; built by local `paper/build_base.py` + `paper/edits_v3.py`; preview `preview/Bardeen_JURI_v3_preview.html`)
-**Next step:** page-limit decision (≈19 Word pages vs 15) → condense or ask the journal; YOU review and accept the tracked edits; answer the figures question; then Stage 3 guided review and Turnitin.
+**Current version:** v4 (`paper/Bardeen_JURI_v4.docx`; local scripts `paper/build_base.py` → `paper/edits_v3.py` → `paper/style_v4.py`; preview `preview/Bardeen_JURI_v4_preview.html`)
+**Next step:** send the page-limit email to juri-dr@kfupm.edu.sa; YOU accept the tracked edits; answer the figures question; Stage 3 guided review; Turnitin.
 
 ## Stages
 | Stage | Status | Version | Date | Notes |
@@ -42,7 +42,7 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | S11 | ✅ | v2: all sections present, in order |
 | F1 | ⬜ | |
 | F2 | ✅ | 4 images, 584–600 dpi |
-| F3 | ⚠️ | v2: Caption-style body text fixed; Fig. 1 (42 w) and Fig. 4 (56 w) captions still long → YOU shorten or keep |
+| F3 | ⚠️ | captions now template style (italic, centred); Fig. 1 and Fig. 4 captions long (optional) |
 | F4 | ✅ | v2: captions "Fig. N." |
 | F5 | ✅ | 3 table titles, all above their tables |
 | F6 | ✅ | Tables 1–3 in order |
@@ -56,8 +56,8 @@ Keys: ⬜ not started · 🔄 in progress · ✅ done/pass · ❌ fails, fix nee
 | F14 | ⬜ | |
 | P1 | ✅ | English |
 | P2 | ✅ | .docx |
-| P3 | ⚠️ | v3: correct template typography (Times New Roman 12 double-spaced body, Arial headings, template margins); 11 tracked changes must be accepted before submission |
-| P4 | ❌ | measured with equations rendered (libreoffice-math installed; original = 12 pages, same as the author's Word): margins +1 → 13, double spacing +4 → 17, added sections/edits +1 → v3 = 18; with the template's exact paragraph spacing (12 pt before, 0 after) = 19 → over 15 |
+| P3 | ⚠️ | v4: all template paragraph styles matched (Normal TNR 12 double, 12 pt before; Title Arial 14; headings Arial bold, H2/H3 italic; captions italic 12 single, 12 pt after; references 12 single); 20 paragraphs with an undefined "BodyText" style set to Normal; equations kept 12 pt like the template; 11 tracked changes to accept |
+| P4 | ❌ | v4 strictly in template format = 20 pages (equations rendered). The JURI sample template itself renders 16 pages in its own format → ask the editorial office how the 15-page limit is counted |
 | P5 | ✅ | v3: no supplementary file (user choice); 4 references changed to "available from the corresponding author on request" (tracked) |
 | P6 | ⬜ | |
 | P7 | ⬜ | |
@@ -99,3 +99,4 @@ _(each stage appends one line: date · stage · version · result summary)_
 - 2026-11-07 · Stage 6 · v2 · compliance edits (structure, author block, statements, typography, Fig./ref formats); wording unchanged except headings/cross-refs (verified by word diff); 229 equations byte-identical; checker 11 → 4 FAIL
 - 2026-11-07 · Stage 6 · v3 · fixed v2 bugs (body font Arial→Times New Roman per template; Methodology subsections misnumbered 4.1.x→3.x); tracked AI edits: gap paragraph, limitations, supplementary references; equations byte-identical
 - 2026-11-07 · P4 · page counts re-measured with the equation module installed (earlier counts drew equations as blank): v1 12, v3 18, exact template spacing 19
+- 2026-11-07 · Stage 6 · v4 · template styles matched; undefined BodyText style fixed; text and equations unchanged (verified); 20 pages strict template; JURI sample template = 16 pages
