@@ -96,3 +96,20 @@ These restate the authors' own content or replace moved material. They contain n
 The previous version referred to **existing supplementary files** (the student author's own research notes): "Supplementary Notes S1 and S2 give the accuracy-ratio and horizon-crossover calculations, and Note S3 compares their scope with the closest literature", plus the Python code. The final supplement was rebuilt from material in the paper and **reuses the names S1–S5 with different content**. 
 
 **Decision (student author, 2026-11-07):** the author's original notes are not submitted. The Data and Code Availability statement says that further working notes and the scripts are available on request; it does not call them "S1–S3", which would clash with the supplement's Notes S1–S5. The author keeps them ready in case a reviewer asks.
+
+## 7. Revision 1 (reviewer comments, November 2026)
+Files: `paper/revision1/` — highlighted manuscript (yellow = new, struck = removed), clean manuscript, response letter, verification script.
+
+**What did not change:** every equation (1)–(26) and (S1)–(S10) is byte-identical; every number in the tables and figures is the same; the figures are untouched.
+
+**Renumbering:** two new tables come first, so old Table 1 → Table 3 and old Table 2 → Table 4.
+
+**New material written with AI help (please check each):**
+1. **Table 1 (comparison with refs 14–19).** Built only from what the Literature Review already says about each study. ⚠ The "Errors separated: No" column restates the paper's own research-gap claim; please confirm it is fair, especially for Kobialko & Gal'tsov (ref. 19).
+2. **Table 2 (notation).**
+3. **Short added sentences** (definitions, scope, wording changes) in the abstract, Introduction, §3.1, §3.4, §4.1.1, §4.1.4–4.1.6, §4.2.1–4.2.2, Conclusions and Data Availability; all are listed in the response letter.
+4. **§3.4 root-selection paragraph:** restates the admissibility checks of Note S3 in the main text.
+5. **§4.1.1 worked example:** values from Table 4 / Eq. (14).
+6. **Supplement Note S2.3:** a second-order example for the null-orbit radius, which reproduces the Table 3 values −400/243 and −260/243 and the ratio 7/13.
+7. **Supplement Note S5.1:** ⚠ new mathematics, the full crossover argument. It covers the sign list, the branch interval u_min = 0.9323648933, and two factorizations that prove x_T < x_B < 1 − ε. Checked symbolically and numerically by the script; the author should still go through it.
+8. **Supplement Note S6 / Supplementary Code S1:** ⚠ a verification script written by the AI assistant, independent of the author's own scripts. It reproduces the paper's values. The author should run it, read it, and mention it in the AI-use statement, or replace it with their own scripts.
