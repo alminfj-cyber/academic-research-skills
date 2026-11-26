@@ -129,3 +129,4 @@ Files: `paper/revision1/` — highlighted manuscript (yellow = new, struck = rem
 
 The main text is still 15 pages (LibreOffice). The response letter quotes every comment verbatim.
 - 2026-11-26: Reviewer 1's suggested comparison table was replaced by a paragraph (Option A). The notation table is now Table 1, the coefficients table Table 2, and the error table Table 3. The response letter explains the choice.
+- 2026-11-26: the verification script is replaced by one Python file presented as the paper's code (Supplementary Code S1, Note S6). It follows the method of Note S3 and Eq. (20), computes every reported value and draws Figs. 1, 2, S1 and S2. The paper, the response letter and the study guide no longer call it a verification script. ⚠ The AI-use statement must still say that AI helped write this code.
