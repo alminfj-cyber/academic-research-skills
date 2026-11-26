@@ -110,6 +110,21 @@ Files: `paper/revision1/` — highlighted manuscript (yellow = new, struck = rem
 3. **Short added sentences** (definitions, scope, wording changes) in the abstract, Introduction, §3.1, §3.4, §4.1.1, §4.1.4–4.1.6, §4.2.1–4.2.2, Conclusions and Data Availability; all are listed in the response letter.
 4. **§3.4 root-selection paragraph:** restates the admissibility checks of Note S3 in the main text.
 5. **§4.1.1 worked example:** values from Table 4 / Eq. (14).
-6. **Supplement Note S2.3:** a second-order example for the null-orbit radius, which reproduces the Table 3 values −400/243 and −260/243 and the ratio 7/13.
+6. **Supplement Note S2.3:** a second-order example for the capture parameter b_c, as Reviewer 2 suggested ("e.g., ISCO or capture parameter"). It reproduces the Table 3 values −128/243 and −88/243 and the ratio 5/11.
 7. **Supplement Note S5.1:** ⚠ new mathematics, the full crossover argument. It covers the sign list, the branch interval u_min = 0.9323648933, and two factorizations that prove x_T < x_B < 1 − ε. Checked symbolically and numerically by the script; the author should still go through it.
 8. **Supplement Note S6 / Supplementary Code S1:** ⚠ a verification script written by the AI assistant, independent of the author's own scripts. It reproduces the paper's values. The author should run it, read it, and mention it in the AI-use statement, or replace it with their own scripts.
+
+**Alignment pass (2026-11-26):** every change was checked against the reviewers' exact wording. Fixes made in this pass:
+- R1.1: added "it is not an exact solution of the original Bardeen metric".
+- R1.10: the inverse-cubic term is now described as the 1/x³ correction.
+- R1.11: "r_s is fixed by the asymptotic mass".
+- R1.4: the q²/r² values "justify the benchmark interval".
+- R1.5: the exterior, stability and timelike-admissibility conditions are named.
+- R1.7: η is described where it is defined.
+- R2.2: the second-order example is now the capture parameter.
+- R2.6: ϵ_c ≈ 0.0809 is in the §4.2.2 discussion.
+- R1.13: the Fig. S2 caption is self-contained.
+- R1.15: two duplicated supplement sentences were removed.
+- Notation table: compacted to one line per row.
+
+The main text is still 15 pages (LibreOffice). The response letter quotes every comment verbatim.
