@@ -102,11 +102,11 @@ Files: `paper/revision1/` — highlighted manuscript (yellow = new, struck = rem
 
 **What did not change:** every equation (1)–(26) and (S1)–(S10) is byte-identical; every number in the tables and figures is the same; the figures are untouched.
 
-**Renumbering:** two new tables come first, so old Table 1 → Table 3 and old Table 2 → Table 4.
+**Renumbering:** the new notation table comes first, so old Table 1 → Table 2 and old Table 2 → Table 3.
 
 **New material written with AI help (please check each):**
-1. **Table 1 (comparison with refs 14–19).** Built only from what the Literature Review already says about each study. ⚠ The "Errors separated: No" column restates the paper's own research-gap claim; please confirm it is fair, especially for Kobialko & Gal'tsov (ref. 19).
-2. **Table 2 (notation).**
+1. **Novelty paragraph (end of the Literature Review), replacing a comparison table** (author's choice, 2026-11-26). It says how the present error decomposition differs from refs 14–19 and credits what each study computes. ⚠ Please confirm it is fair to Kobialko & Gal'tsov (ref. 19).
+2. **Table 1 (notation).**
 3. **Short added sentences** (definitions, scope, wording changes) in the abstract, Introduction, §3.1, §3.4, §4.1.1, §4.1.4–4.1.6, §4.2.1–4.2.2, Conclusions and Data Availability; all are listed in the response letter.
 4. **§3.4 root-selection paragraph:** restates the admissibility checks of Note S3 in the main text.
 5. **§4.1.1 worked example:** values from Table 4 / Eq. (14).
@@ -128,3 +128,4 @@ Files: `paper/revision1/` — highlighted manuscript (yellow = new, struck = rem
 - Notation table: compacted to one line per row.
 
 The main text is still 15 pages (LibreOffice). The response letter quotes every comment verbatim.
+- 2026-11-26: Reviewer 1's suggested comparison table was replaced by a paragraph (Option A). The notation table is now Table 1, the coefficients table Table 2, and the error table Table 3. The response letter explains the choice.
